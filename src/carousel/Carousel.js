@@ -66,6 +66,7 @@ export default class Carousel extends Component {
         useScrollView: PropTypes.bool,
         vertical: PropTypes.bool,
         onBeforeSnapToItem: PropTypes.func,
+	      onScrollEndCallback: PropTypes.func,
         onSnapToItem: PropTypes.func
     };
 
@@ -1030,6 +1031,7 @@ export default class Carousel extends Component {
 
     _onSnap (index) {
         const { onSnapToItem } = this.props;
+        this.props.onScrollEndCallback(index);
 
         if (!this._carouselRef) {
             return;
