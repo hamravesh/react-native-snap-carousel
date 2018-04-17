@@ -67,6 +67,8 @@ export default class Carousel extends Component {
         vertical: PropTypes.bool,
         onBeforeSnapToItem: PropTypes.func,
 	      onScrollEndCallback: PropTypes.func,
+        onScrollEndCallback: PropTypes.func,
+        isRTL: PropTypes.bool,
         onSnapToItem: PropTypes.func
     };
 
@@ -305,7 +307,7 @@ export default class Carousel extends Component {
 
     _needsRTLAdaptations () {
         const { vertical } = this.props;
-        return IS_RTL && !IS_IOS && !vertical;
+        return this.props.isRTL && IS_RTL && !IS_IOS && !vertical;
     }
 
     _canLockScroll () {
